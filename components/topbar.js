@@ -6,10 +6,11 @@ const Topbar = (() => {
 
   const BREADCRUMB = {
     '/':                          [{ label: 'Accueil' }],
-    '/params/organisation':       [{ label: 'Paramétrage', route: '/' }, { label: 'Fiche collectivité' }],
-    '/params/etablissements':     [{ label: 'Paramétrage', route: '/' }, { label: 'Établissements' }],
-    '/params/referentiels':       [{ label: 'Paramétrage', route: '/' }, { label: 'Référentiels' }],
-    '/params/reglementation':     [{ label: 'Paramétrage', route: '/' }, { label: 'Réglementation' }],
+    '/params/organisation':       [{ label: 'Accueil', route: '/' }, { label: 'Paramétrage de l\'Organisation' }],
+    '/params/etablissements':     [{ label: 'Accueil', route: '/' }, { label: 'Paramétrage des Établissements' }],
+    '/params/geographie':         [{ label: 'Accueil', route: '/' }, { label: 'Paramétrage géographique' }],
+    '/params/referentiels':       [{ label: 'Accueil', route: '/' }, { label: 'Paramétrage des Référentiels' }],
+    '/params/reglementation':     [{ label: 'Accueil', route: '/' }, { label: 'Réglementation' }],
   };
 
   function render() {
@@ -17,7 +18,16 @@ const Topbar = (() => {
     if (!el) return;
 
     const route = State.get('route') || '/';
-    const crumbs = BREADCRUMB[route] || [{ label: 'Paramétrage', route: '/' }, { label: 'Section' }];
+    // Strip query string for breadcrumb matching
+    const basePath = route.split('?')[0];
+    // For subtab routes (e.g. /params/geographie/sites), match the prefix
+    let crumbs = BREADCRUMB[basePath];
+    if (!crumbs) {
+      if (basePath.startsWith('/params/geographie')) crumbs = BREADCRUMB['/params/geographie'];
+      else if (basePath.startsWith('/params/etablissements')) crumbs = BREADCRUMB['/params/etablissements'];
+      else if (basePath.startsWith('/params/referentiels')) crumbs = BREADCRUMB['/params/referentiels'];
+      else crumbs = [{ label: 'Accueil', route: '/' }, { label: 'Section' }];
+    }
 
     el.innerHTML = `
       <div class="topbar-left">

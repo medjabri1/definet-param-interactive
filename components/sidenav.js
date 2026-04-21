@@ -10,10 +10,11 @@ const Sidenav = (() => {
     {
       id: 'params', icon: 'settings', label: 'Paramétrage', route: '/params', open: true,
       children: [
-        { id: 'p-organisation',   icon: 'business',  label: 'Organisation',    route: '/params/organisation' },
-        { id: 'p-etablissement',  icon: 'apartment', label: 'Établissements',  route: '/params/etablissements' },
-        { id: 'p-referentiels',   icon: 'list_alt',  label: 'Référentiels',    route: '/params/referentiels' },
-        { id: 'p-reglementation', icon: 'policy',    label: 'Réglementation',  route: '/params/reglementation' },
+        { id: 'p-organisation',   icon: 'business',  label: 'Paramétrage de l\'Organisation', route: '/params/organisation' },
+        { id: 'p-etablissement',  icon: 'apartment', label: 'Paramétrage des Établissements', route: '/params/etablissements' },
+        { id: 'p-geographie',     icon: 'public',    label: 'Paramétrage géographique',       route: '/params/geographie' },
+        { id: 'p-referentiels',   icon: 'list_alt',  label: 'Paramétrage des Référentiels',   route: '/params/referentiels' },
+        { id: 'p-reglementation', icon: 'policy',    label: 'Réglementation',                 route: '/params/reglementation' },
       ]
     }
   ];

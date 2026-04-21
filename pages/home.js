@@ -14,8 +14,14 @@ const HomePage = (() => {
     {
       id: 'etablissements', icon: 'apartment',
       title: 'Paramétrage des Établissements',
-      desc: 'Fiche détaillée des organismes, capacités par section, arborescence des services, référentiels géographiques.',
+      desc: 'Fiche détaillée des organismes, capacités par section, arborescence des services.',
       route: '/params/etablissements',
+    },
+    {
+      id: 'geographie', icon: 'public',
+      title: 'Paramétrage géographique',
+      desc: 'Référentiels territoriaux partagés : villes, pays, rues, périmètres & quartiers, agglomérations, sites d\'activité.',
+      route: '/params/geographie',
     },
     {
       id: 'referentiels', icon: 'list_alt',

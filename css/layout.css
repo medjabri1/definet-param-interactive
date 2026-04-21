@@ -174,19 +174,31 @@ body.is-app    #app-shell     { display: flex !important; }
 
 /* ── Expanded state ──────────────────────────────────────────── */
 .sidenav.expanded {
-  width: 220px;
+  width: 320px;
   align-items: stretch;
   padding: var(--sp-4) var(--sp-2);
 }
 .sidenav.expanded .snav-brand { padding: 0 var(--sp-2); }
-.sidenav.expanded .snav-name { max-width: 120px; opacity: 1; }
+.sidenav.expanded .snav-name { max-width: 220px; opacity: 1; }
 .sidenav.expanded .nav-item {
   width: auto; height: 42px;
   flex-direction: row;
   justify-content: flex-start;
   padding: 0 var(--sp-3); gap: 10px;
 }
-.sidenav.expanded .nav-item .nav-label { font-size: 13px; font-weight: 500; }
+.sidenav.expanded .nav-item .nav-label {
+  font-size: 13px; font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1; min-width: 0;
+}
+.sidenav.expanded .nav-sub-item .nav-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1; min-width: 0;
+}
 .sidenav.expanded .nav-item::after { display: none !important; }
 .sidenav.expanded .nav-divider { width: auto; margin: var(--sp-2) var(--sp-1); }
 .sidenav.expanded .nav-bottom { align-items: center; }

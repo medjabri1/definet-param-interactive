@@ -9,6 +9,8 @@ const Router = (() => {
     { pattern: /^\/params\/organisation$/,          page: 'CollectivitePage' },
     { pattern: /^\/params\/etablissements$/,        page: 'EtablissementsPage' },
     { pattern: /^\/params\/etablissements\/(.+)$/,  page: 'EtablissementsPage', param: 'subtab' },
+    { pattern: /^\/params\/geographie(?:\?.*)?$/,                 page: 'GeographiePage' },
+    { pattern: /^\/params\/geographie\/([^/?]+)(?:\?.*)?$/,       page: 'GeographiePage', param: 'subtab' },
     { pattern: /^\/params\/referentiels$/,          page: 'ReferentielsPage' },
     { pattern: /^\/params\/referentiels\/(.+)$/,    page: 'ReferentielsPage', param: 'ref' },
     { pattern: /^\/params\/reglementation$/,        page: 'ReglementationPage' },
